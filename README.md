@@ -11,9 +11,15 @@ Almost every name in each episode should have a hyperlink to that persons' page 
 ![IMDB](https://github.com/SegiH/WTFIndexer/blob/main/screenshots/IMDB.png?raw=true)
 
 # Check In/Out Episodes
-This app also has the ability to check episodes in and out on your media server if you have the episodes saved. I added this feature because media players like Emby and Jellyfin cannot play a WTF podcast if you have 500 or more files in a directory. When you try to play a podcast episode, it does not play so I added a way to check in episodes like a library.
+This app also has the ability to check episodes in and out on your media server if you have the episodes saved. I added this feature because media players like Emby and Jellyfin cannot play a WTF podcast if you have 500 or more files in a directory. When you try to play a podcast episode, it does not play so I added a way to check in episodes like a library. 
 
-Check In/Out is not enabled by default. To enable it, edit assets/default.json and change ```"CheckoutAllowed": "false",``` to ```"CheckoutAllowed": "true",```
+Check In/Out is not enabled by default. It can be enabled in the config file by changing CheckoutAllowed to true in assets/default.json
+
+# Editing
+Editing information for an episode can be enabled in the config file by changing EditingAllowed to true in assets/default.json
+
+# Faster Loading
+The setting InitialRecordCount in assets/default.json can be used to set how many episodes are loaded when you start the app. The higher the number, the longer it will take to load everything. Valid values are: 25, 50, 100, 500, 1000, 5000. Any other value will be ignored.
 
 ## Requirements:
 
@@ -28,7 +34,7 @@ Check In/Out is not enabled by default. To enable it, edit assets/default.json a
    a. `npm install -g @ionic/cli` # Install Ionic framework
    b. `ionic build` # Build the app
    c. Move contents of build to your web server
-1. Edit assets\default.json and set the value of all of the properties
+1. Edit assets\default.json and set the value of all of the properties. Authorization is the same value that you set for the backend
 
 1. (Optional) Build the Android App with Android Studio
    a. After building the web app above run the following commands:
