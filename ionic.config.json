@@ -1,0 +1,7 @@
+{
+  "name": "WTFIndexer-React",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

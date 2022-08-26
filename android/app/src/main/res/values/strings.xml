@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">WTFIndexer-React</string>
+    <string name="title_activity_main">WTFIndexer-React</string>
+    <string name="package_name">com.segi.hovav.wtfindexer</string>
+    <string name="custom_url_scheme">com.segi.hovav.wtfindexer</string>
+</resources>

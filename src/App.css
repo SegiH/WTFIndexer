@@ -1,0 +1,190 @@
+@media (min-width: 350px) and (max-width: 950px) {
+     body {          
+          overflow: visible;
+     }
+
+     .app-loading {
+        margin-left: 20% !important;
+        margin-top: 25% !important;
+     }
+
+     ion-app {
+        overflow: auto;
+        overflow-x: visible !important;
+     }
+
+     ion-grid {
+        width: 220%;
+     }
+
+     ion-infinite-scroll {
+        width: 220%;
+     }
+   
+    .app-loading {
+        float:left;
+        margin-left: 18%;
+    }
+
+    .wrap {
+        /*overflow-wrap: break-word;*/
+        /*white-space: break-spaces !important;*/ /* This fixes the word wrap issue but prevents horizontal scrolling */
+        /*word-wrap: break-word;*/
+        
+        /*overflow: scroll;*/ /* This also fixes the word wrap issue by adding a scrollbar for the name but prevents horizontal scrolling */
+    }
+}
+
+ion-toolbar {
+    height: 80px !important;
+}
+
+#update {
+    --max-height: 50px;
+}
+
+.backgroundEEE {
+    background-color: #eee;
+}
+
+.blackText {
+     color: black !important;
+}
+
+.clickable {
+    cursor: pointer;
+    pointer-events: auto !important;
+}
+
+.dashed-border {
+    border-style: dashed;
+    border-width: thin;
+}
+
+.height140 {
+     height: 140px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.inline {
+     display: inline-flex !important;
+}
+
+.leftFloat {
+    margin-right: 0;
+}
+
+.leftMargin15 {
+    margin-left: 15px;
+}
+
+.marginBottom30 {
+     margin-bottom: 10px;
+}
+
+.marginRight10 {
+    padding-right: 1em !important;
+}
+
+.narrowCell {
+     --max-width: 25px;
+     align-self: flex-end;
+}
+
+.recordCount {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+
+.removeBoxSizing {
+    box-sizing: unset !important;
+}
+    
+.sticky {
+    border: solid;
+    position: sticky;
+	position: -webkit-sticky;
+	top: 0px;
+	z-index: 2;
+}
+
+.tableCell {
+    border: solid;
+    border-width: 1px;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background: #cfe0f3;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    color: #454b50;
+}
+
+.tableHeader {
+    background: #eee;
+    font-weight: bold;
+    text-align: center;
+}
+
+.textFont {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.underline {
+    border-bottom: solid;
+    border-width: 1px;
+}
+
+.ion-row {
+    margin: 1em 0;
+}
+
+.app-loading {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    margin-top: 250%;
+}
+
+.app-loading .spinner {
+    animation: rotate 2s linear infinite;
+    height: 200px;
+    margin: auto;
+    position: absolute;
+    transform-origin: center center;
+    width: 200px;
+}
+
+.app-loading .spinner .path {
+    animation: dash 1.5s ease-in-out infinite;   
+    stroke: #ddd;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;     
+    stroke-linecap: round;
+}
+
+@keyframes rotate {
+    100% {
+         transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+         stroke-dasharray: 1, 200;
+         stroke-dashoffset: 0;
+    }
+    50% {
+         stroke-dasharray: 89, 200;
+         stroke-dashoffset: -35px;
+    }
+    100% {
+         stroke-dasharray: 89, 200;
+         stroke-dashoffset: -124px;
+    }
+}
