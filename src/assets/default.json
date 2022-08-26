@@ -1,7 +1,7 @@
 {
     "Authorization": "",
     "BackendURL": "",
-    "CheckoutAllowed": "",
-    "EditingAllowed": "",
+    "CheckoutAllowed": "false",
+    "EditingAllowed": "false",
     "InitialRecordCount": "25"
 }

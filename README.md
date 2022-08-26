@@ -7,6 +7,9 @@ It can be run as a web application, Android app or iOS app. (Note: It is also su
 
 Almost every name in each episode should have a hyperlink to that persons' page on IMDB.com where you can see all of their credits. This app will try to automatically get the IMDB link for each name in an episode title when adding a new episode to the database. If it isn't able to identify the name, you can manually update the IMDB link by visiting the persons' IMDB page and using the Javascript bookmarklet below.
 
+![Episodes](https://github.com/SegiH/WTFIndexer/blob/main/screenshots/Episodes.png?raw=true)
+![IMDB](https://github.com/SegiH/WTFIndexer/blob/main/screenshots/IMDB.png?raw=true)
+
 # Check In/Out Episodes
 This app also has the ability to check episodes in and out on your media server if you have the episodes saved. I added this feature because media players like Emby and Jellyfin cannot play a WTF podcast if you have 500 or more files in a directory. When you try to play a podcast episode, it does not play so I added a way to check in episodes like a library.
 
