@@ -37,43 +37,52 @@ const App = () => {
 
      const [isAdding,setIsAdding] = useState(false);
      const [isEditing,setIsEditing] = useState(false);
+     const [isError,setIsError] = useState(false);
      const [isLoading,setIsLoading] = useState(true);
      
-     const configData = require("./assets/default.json");
+     const configData = require(".//assets/default.json");
 
      const initialRecordCount = (typeof configData["InitialRecordCount"] !== 'undefined' ? configData["InitialRecordCount"] : 100);
 
      useEffect(() => {
           try {
                if (typeof configData["Authorization"] === 'undefined') {
-                    alert("A fatal error occurred reading the property Authorization from config data. Please check the config assets/default.json")
-                    throw new Error('Authorization property not found in assets/default.json');     
+                    alert("A fatal error occurred reading the property Authorization. Please check the config file at assets/default.json");
+                    setIsError(true);
+                    return;
+               } else if (typeof configData["Authorization"] !== 'undefined' && configData["Authorization"] === "") {
+                    alert("The property Authorization is not set. Please check the config file at assets/default.json");
+                    setIsError(true);
+                    return;
                } else {
                     setAuthorization(configData["Authorization"]);
                }
 
                if (typeof configData["BackendURL"] === 'undefined') {
-                    alert("A fatal error occurred reading the property BackendURL from config data. Please check the config assets/default.json")
-                    throw new Error('BackendURL property not found in assets/default.json');     
+                    alert("A fatal error occurred reading the property BackendURL from config data. Please check the config file at assets/default.json")
+                    setIsError(true);
+                    return;
                } else {
                     setBackendURL(configData["BackendURL"]);
                }
 
                if (typeof configData["CheckoutAllowed"] === 'undefined') {
-                    alert("A fatal error occurred reading the property CheckoutAllowed from config data. Please check the config assets/default.json")
-                    throw new Error('CheckoutAllowed property not found in assets/default.json');     
+                    alert("A fatal error occurred reading the property CheckoutAllowed from config data. Please check the config file at assets/default.json")
+                    setIsError(true);
+                    return;
                } else {
                     setCheckoutAllowed(configData["CheckoutAllowed"]);
                }
 
                if (typeof configData["EditingAllowed"] === 'undefined') {
-                    alert("A fatal error occurred reading the property EditingAllowed from config data. Please check the config assets/default.json")
-                    throw new Error('EditingAllowed property not found in assets/default.json');     
+                    alert("A fatal error occurred reading the property EditingAllowed from config data. Please check the config file at assets/default.json")
+                    setIsError(true);
+                    return;  
                } else {
                     setEditingAllowed(configData["EditingAllowed"]);
                }
           } catch(err) {
-               alert("A fatal error occurred reading the config data in App component. Please check the config assets/")
+               alert("A fatal error occurred reading the config data in App component. Please check the config file at assets/default.json")
           }
      },[configData]);
 
@@ -94,7 +103,8 @@ const App = () => {
                                    </IonGrid>
                               </IonToolbar>
                          </IonHeader>
-                    
+
+                         {!isError &&
                          <IonTabs>
                               <IonRouterOutlet>
                                    <Route path="/episodes" exact={true}>
@@ -120,10 +130,11 @@ const App = () => {
                                    </IonTabButton>
                               </IonTabBar>
                          </IonTabs>
+                         }
                     </IonPage>
                </IonReactRouter>
 
-{isLoading &&
+               {isLoading && !isError &&
                     <Loading />
                }
           </IonApp>
