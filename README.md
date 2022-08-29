@@ -33,24 +33,26 @@ The setting InitialRecordCount in assets/default.json can be used to set how man
 1. Build the web app:
    a. `npm install -g @ionic/cli` # Install Ionic framework
    b. `ionic build` # Build the app
-   c. Move contents of build to your web server
-1. Edit assets\default.json and set the value of all of the properties. Authorization is the same value that you set for the backend
+   c. Edit src\assets\default.json and set the value of all of the properties. Authorization is the same value that you set for the backend
+   d. Copy src\assets\default.json to build\assets
+   e. Move contents of build to your web server
 
 1. (Optional) Build the Android App with Android Studio
    a. After building the web app above run the following commands:
-   a. `ionic cap copy android`
-   a. `ionic cap sync android`
-   a. `ionic cap open android`
-   a. Android Studio should automatically open the Android project
-   a. Build & Deploy it to your device over USB
+   b. `ionic cap copy android`
+   c. `ionic cap sync android`
+   d. Copy src\assets\default.json to android\app\src\main\assets
+   e. `ionic cap open android`
+   f. Android Studio should automatically open the Android project
+   g. Build & Deploy it to your device over USB
 
 1. (Optional) Build the iOS App with XCode
    a. After building the web app above run the following commands:
-   a. `ionic cap copy ios`
-   a. `ionic cap sync ios`
-   a. `ionic cap open ios`
-   a. XCode should automatically open the iOS project
-   a. Build & Deploy it to your device over USB
+   b. `ionic cap copy ios`
+   c. `ionic cap sync ios`
+   d. `ionic cap open ios`
+   e. XCode should automatically open the iOS project
+   f. Build & Deploy it to your device over USB
 
 ### Javascript Bookmarklet
 To make it easier to add a persons' IMDB link, you can create a bookmarklet that you can click on in your browsers' toolbar to quickly add an IMDB URL.

@@ -250,9 +250,9 @@ const Episodes = (props: any) => {
 
           const episodeIDs : any = episodePayload.map((episode : any) => episode["EpisodeID"]);
 
-          const startingEpisodeNumber = Math.max(...episodeIDs) + 1;
+          const nextEpisodeNumber = Math.max(...episodeIDs) + 1;
 
-          await axios.put(`${props.backendURL}/ScrapeData?StartingEpisodeNum=${startingEpisodeNumber}`,null,{ headers: { "Authorization": `Bearer ${props.authorization}` }})
+          await axios.put(`${props.backendURL}/ScrapeData?StartingEpisodeNum=${nextEpisodeNumber}`,null,{ headers: { "Authorization": `Bearer ${props.authorization}` }})
           .then(async (res: any)=> {
                getEpisodes();
           })

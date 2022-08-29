@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.segi.hovav.wtfindexer',
-  appName: 'WTFIndexer-React',
+  appName: 'WTFIndexer',
   webDir: 'build',
   bundledWebRuntime: false
 };

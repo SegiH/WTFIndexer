@@ -24,8 +24,6 @@ import { globeOutline, musicalNotesOutline } from 'ionicons/icons';
 
 setupIonicReact();
 
-process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-
 const App = () => {
      const [authorization,setAuthorization] = useState('');
      const [backendURL,setBackendURL] = useState('');
