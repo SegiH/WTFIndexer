@@ -155,7 +155,7 @@ const Episodes = (props: any) => {
 
           await axios.get(`${props.backendURL}/GetEpisodes${params}`,{ headers: { "Authorization": `Bearer ${props.authorization}` }})
           .then(async (res: any)=> {
-               res.data.forEach((episode: any) => {
+               res.data?.forEach((episode: any) => {
                     if (episode.IMDBLink !== null && episode.IMDBLink.indexOf(" target=") === -1) {
                          episode.IMDBLink=episode.IMDBLink.replace('">','" target="_blank">')
                     }
@@ -165,7 +165,7 @@ const Episodes = (props: any) => {
 
                await axios.get(`${props.backendURL}/GetEpisodeCheckInOutStatus`,{ headers: { "Authorization": `Bearer ${props.authorization}` }})
                .then((episodeCheckInOutStatus: any) => {
-                    episodeCheckInOutStatus.data.forEach((episodeItemCheckInOut: any) => {
+                    episodeCheckInOutStatus?.data.forEach((episodeItemCheckInOut: any) => {
                          const thisEpisode : any = res.data.filter((episode : any) => episode["EpisodeNum"] === episodeItemCheckInOut.EpisodeNum);
 
                          if (thisEpisode.length === 1) {
