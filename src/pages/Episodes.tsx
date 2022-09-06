@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState} from "react";
-import { IonButton, IonCheckbox, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonInput, IonLabel, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
+import { IonButton,IonCheckbox, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonInput, IonLabel, IonPage, IonRow, IonSelect, IonSelectOption, IonToolbar } from '@ionic/react';
 import axios from 'axios';
 import { closeOutline, createOutline, heart, heartOutline, saveOutline } from 'ionicons/icons';
 
@@ -262,16 +262,20 @@ const Episodes = (props: any) => {
      }
 
      useEffect(() => {
-          // !props.episodesLoadingStarted is included to make sure that this is only initialized once
-          if (typeof props.initialRecordCount !== 'undefined' && recordCountSizes.includes(parseInt(props.initialRecordCount)) && !props.episodesLoadingStarted) {
-               setRecordCount(parseInt(props.initialRecordCount));
-               getEpisodes(parseInt(props.initialRecordCount));
-          } else if (!props.episodesLoaded && !props.episodesLoadingStarted) {
-               getEpisodes();
+          if (props.authorization !== '' && props.backendURL !== '') {
+               // !props.episodesLoadingStarted is included to make sure that this is only initialized once
+               if (typeof props.initialRecordCount !== 'undefined' && recordCountSizes.includes(parseInt(props.initialRecordCount)) && !props.episodesLoadingStarted) {
+                    setRecordCount(parseInt(props.initialRecordCount));
+                    getEpisodes(parseInt(props.initialRecordCount));
+               } else if (!props.episodesLoaded && !props.episodesLoadingStarted) {
+                    getEpisodes();
+               }
+
+               determineColumnSizes();
           }
 
-          determineColumnSizes();
-     },[determineColumnSizes, getEpisodes, props.episodesLoaded, props.episodesLoadingStarted, props.initialRecordCount, recordCountSizes]);
+          //setRecordCount(props.initialRecordCount);
+     },[determineColumnSizes, getEpisodes, props.authorization, props.backendURL, props.episodesLoaded, props.episodesLoadingStarted, props.initialRecordCount, recordCountSizes]);
 
      useEffect(() => {
           determineColumnSizes();

@@ -13,13 +13,13 @@ Almost every name in each episode should have a hyperlink to that persons' page 
 # Check In/Out Episodes
 This app also has the ability to check episodes in and out on your media server if you have the episodes saved. I added this feature because media players like Emby and Jellyfin cannot play a WTF podcast if you have 500 or more files in a directory. When you try to play a podcast episode, it does not play so I added a way to check in episodes like a library. 
 
-Check In/Out is not enabled by default. It can be enabled in the config file by changing CheckoutAllowed to true in assets/default.json
+Check In/Out is not enabled by default. It can be enabled in the menu.
 
 # Editing
-Editing information for an episode can be enabled in the config file by changing EditingAllowed to true in assets/default.json
+Editing information for an episode can be enabled in the menu
 
 # Faster Loading
-The setting InitialRecordCount in assets/default.json can be used to set how many episodes are loaded when you start the app. The higher the number, the longer it will take to load everything. Valid values are: 25, 50, 100, 500, 1000, 5000. Any other value will be ignored.
+The setting InitialRecordCount in the menu can be used to set how many episodes are loaded when you start the app. The higher the number, the longer it will take to load everything. Valid values are: 25, 50, 100, 500, 1000, 5000. Any other value will be ignored.
 
 ## Requirements:
 
@@ -33,18 +33,15 @@ The setting InitialRecordCount in assets/default.json can be used to set how man
 1. Build the web app:
    a. `npm install -g @ionic/cli` # Install Ionic framework
    b. `ionic build` # Build the app
-   c. Edit src\assets\default.json and set the value of all of the properties. Authorization is the same value that you set for the backend
-   d. Copy src\assets\default.json to build\assets
-   e. Move contents of build to your web server
+   c. Move contents of build to your web server
 
 1. (Optional) Build the Android App with Android Studio
    a. After building the web app above run the following commands:
    b. `ionic cap copy android`
    c. `ionic cap sync android`
-   d. Copy src\assets\default.json to android\app\src\main\assets
-   e. `ionic cap open android`
-   f. Android Studio should automatically open the Android project
-   g. Build & Deploy it to your device over USB
+   d. `ionic cap open android`
+   e. Android Studio should automatically open the Android project
+   f. Build & Deploy it to your device over USB
 
 1. (Optional) Build the iOS App with XCode
    a. After building the web app above run the following commands:
